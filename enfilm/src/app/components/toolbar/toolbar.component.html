@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button id="logo" (click)="navigateIndex()">
+        <mat-icon>movie_filter</mat-icon><span id="titulo">enFilm</span>
+      </button>
+  
+      <span class="spacer"></span>
+  
+      <ng-container >
+        <button mat-button [matMenuTriggerFor]="menu" matTooltip="Usuario">
+            <mat-icon>account_circle</mat-icon>
+        </button> 
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="navegarHaciaDatosPersonales()">
+            <mat-icon>account_circle</mat-icon>Modificar mis datos
+          </button>
+
+          <button mat-menu-item (click)="confirmacionAbandonarSesion()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Abandonar la sesión</span>
+          </button>
+        </mat-menu> 
+      </ng-container>
+    </mat-toolbar-row>
+  </mat-toolbar>

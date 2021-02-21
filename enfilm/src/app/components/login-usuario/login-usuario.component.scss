@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container{
+    margin-top: 2em;
+    width: 25%;
+}
+.errorEnValidacion {
+    margin-top: 5px;
+    color: #a87878;
+}
+
+mat-form-field{
+    width: 100%;
+}
