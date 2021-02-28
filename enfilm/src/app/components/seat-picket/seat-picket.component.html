@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-grid-list cols="5" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let ticket of ticketList">
+      <div class="seat-container">
+        <!--CASO EN EL QUE EL TICKET ESTE OCUPADO EN LA BBDD. SE PONE EN DISABLED-->
+        <mat-button-toggle *ngIf="ticket.user_id != null" value="{{ticket.id}}"  [disabled]=true >
+
+          <mat-icon
+            [ngStyle]="{ color: 'red' }"
+            [inline]="true"
+            class="seat-icon"
+            >event_seat</mat-icon
+          >
+        </mat-button-toggle>
+
+        <!--CASO EN EL QUE EL TICKET NO ESTE OCUPADO EN BBDD.-->
+        <mat-button-toggle *ngIf="!ticket.selected" value="{{ticket.id}}" (change)="onValChange($event.value)">
+          <mat-icon
+          [inline]="true"
+          class="seat-icon"
+          >event_seat</mat-icon
+        >
+        </mat-button-toggle>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <button mat-raised-button (click)="buyTickets()">Comprar</button>
+</div>

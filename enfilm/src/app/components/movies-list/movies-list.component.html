@@ -1,1 +1,25 @@
-<p>movies-list works!</p>
+<mat-grid-list cols="4" rowHeight="9:8">
+  
+    <mat-grid-tile *ngFor="let movie of movieList.movies">
+      <mat-card class="movie-card">
+
+        <img mat-card-image src="{{movie.image}}" class="card-image">
+        <mat-card-content>
+          <!--Expansion pannel-->
+          <mat-expansion-panel class="w-100">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{movie.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <button mat-raised-button color="primary" *ngFor="let date of movie.dates" (click)="navigateToSeatPicker(movie.id, date)">{{date | date:'HH:mm dd/MM'}}</button>
+          </mat-expansion-panel>
+          <!-- End Expansion pannel -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+

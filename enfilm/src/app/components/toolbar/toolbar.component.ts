@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/interfaces';
 import { AutenticadorJwtService } from 'src/app/services/autenticador-jwt.service';
 import { ComunicacionDeAlertasService } from 'src/app/services/comunicacion-de-alertas.service'
+import { UserService } from 'src/app/services/user.service';
 import { DialogTypes } from '../dialogo-general/dialog-data-type';
 
 @Component({
@@ -11,17 +13,24 @@ import { DialogTypes } from '../dialogo-general/dialog-data-type';
 })
 export class ToolbarComponent implements OnInit {
 
+  userAutenticado: User;
 
   constructor(private autenticadorJwtService: AutenticadorJwtService,
     private router: Router,
-    private comunicacionAlertasService: ComunicacionDeAlertasService) { }
+    private comunicacionAlertasService: ComunicacionDeAlertasService,
+    private userService: UserService) { }
 
   ngOnInit(): void {
+
+    this.userService.cambiosEnUserAutenticado.subscribe(newUserAutenticado => {
+      this.userAutenticado = newUserAutenticado;
+    });
+
   }
 
   
   navigateIndex(){
-    this.router.navigate(['/index']);
+    this.router.navigate(['/movies']);
   }
 
     /**

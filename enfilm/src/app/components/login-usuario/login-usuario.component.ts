@@ -29,7 +29,8 @@ export class LoginUsuarioComponent implements OnInit {
         this.loginForm.controls.password.value).subscribe(data => {
            if(data.jwt != undefined){
              this.autenticadorJwtService.almacenaJWT(data.jwt);
-             this.router.navigate(['']);
+             this.router.navigate(['/movies']);
+             this.userService.emitirNuevoCambioEnUsuarioAutenticado();
              console.log(data.jwt)
            }
            else{

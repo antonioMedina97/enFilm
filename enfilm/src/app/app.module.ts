@@ -11,6 +11,7 @@ import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.
 import { MoviesListComponent } from './components/movies-list/movies-list.component'; 
 import { HttpInterceptorService } from './services/http-interceptor.service';
 
+
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
@@ -30,12 +31,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+
+
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DialogoGeneralComponent } from './components/dialogo-general/dialogo-general.component';
+import { SeatPicketComponent } from './components/seat-picket/seat-picket.component';
+import { NuevoShowComponent } from './components/nuevo-show/nuevo-show.component';
 
 
 
@@ -48,6 +57,8 @@ import { DialogoGeneralComponent } from './components/dialogo-general/dialogo-ge
     MoviesListComponent,
     ToolbarComponent,
     DialogoGeneralComponent,
+    SeatPicketComponent,
+    NuevoShowComponent,
     
   ],
   imports: [
@@ -76,7 +87,10 @@ import { DialogoGeneralComponent } from './components/dialogo-general/dialogo-ge
     MatDividerModule,
     MatSnackBarModule,
     MatChipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatGridListModule,
+    MatExpansionModule,
+    MatButtonToggleModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="secondary">
     <mat-toolbar-row>
       <button mat-icon-button id="logo" (click)="navigateIndex()">
         <mat-icon>movie_filter</mat-icon><span id="titulo">enFilm</span>
@@ -6,9 +6,10 @@
   
       <span class="spacer"></span>
   
-      <ng-container >
-        <button mat-button [matMenuTriggerFor]="menu" matTooltip="Usuario">
+      <ng-container *ngIf="userAutenticado != null">
+        <button mat-button id="userContainer" [matMenuTriggerFor]="menu" matTooltip="Tooltip">
             <mat-icon>account_circle</mat-icon>
+            <span>{{userAutenticado.name}}</span>
         </button> 
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="navegarHaciaDatosPersonales()">
