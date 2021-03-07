@@ -11,7 +11,7 @@ import { AutenticadorJwtService } from 'src/app/services/autenticador-jwt.servic
 })
 export class LoginUsuarioComponent implements OnInit {
 
-  loginForm: FormGroup
+  loginForm: FormGroup;
   hidePassword: boolean = true;
   
   constructor(private userService: UserService, private router: Router,
@@ -37,6 +37,10 @@ export class LoginUsuarioComponent implements OnInit {
              console.log('No makina');
            }
         })
+  }
+
+  newUser(){
+    this.router.navigate(['/nuevoUser'])
   }
 
 }

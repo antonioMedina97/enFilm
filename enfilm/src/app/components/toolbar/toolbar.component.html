@@ -1,4 +1,4 @@
-<mat-toolbar color="secondary">
+<mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button id="logo" (click)="navigateIndex()">
         <mat-icon>movie_filter</mat-icon><span id="titulo">enFilm</span>
@@ -14,6 +14,17 @@
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="navegarHaciaDatosPersonales()">
             <mat-icon>account_circle</mat-icon>Modificar mis datos
+          </button>
+
+          <button mat-menu-item (click)="listaEntradas()">
+            <mat-icon>movie_filter</mat-icon>
+            <span>Lista de entradas</span>
+          </button>
+
+
+          <button *ngIf="userAutenticado.role == 1" mat-menu-item (click)="listaUsuarios()">
+            <mat-icon>accessibility</mat-icon>
+            <span>Lista de usuarios</span>
           </button>
 
           <button mat-menu-item (click)="confirmacionAbandonarSesion()">

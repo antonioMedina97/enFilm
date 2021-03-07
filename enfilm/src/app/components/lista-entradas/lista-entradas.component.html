@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row"  *ngFor="let ticket of ticketList" >
+
+      <div class="col-8 mx-auto mb-3 ">
+
+          <app-entrada [ticket]="ticket" ></app-entrada>
+          
+      </div>
+
+  </div>
+</div>

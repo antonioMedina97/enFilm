@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginUsuarioComponent } from './components/login-usuario/login-usuario.component';
 import { MoviesListComponent } from './components/movies-list/movies-list.component'; 
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { Md5 } from 'ts-md5/dist/md5';
 
 
 import { MatCardModule } from '@angular/material/card';
@@ -45,7 +46,12 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DialogoGeneralComponent } from './components/dialogo-general/dialogo-general.component';
 import { SeatPicketComponent } from './components/seat-picket/seat-picket.component';
 import { NuevoShowComponent } from './components/nuevo-show/nuevo-show.component';
-
+import { EntradaComponent } from './components/entrada/entrada.component';
+import { ListaEntradasComponent } from './components/lista-entradas/lista-entradas.component';
+import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { NuevoUsuarioComponent } from './components/nuevo-usuario/nuevo-usuario.component';
 
 
 
@@ -59,6 +65,14 @@ import { NuevoShowComponent } from './components/nuevo-show/nuevo-show.component
     DialogoGeneralComponent,
     SeatPicketComponent,
     NuevoShowComponent,
+    EntradaComponent,
+    ListaEntradasComponent,
+    CambioPasswordComponent,
+    ListaUsuariosComponent,
+    UpdateUserComponent,
+    NuevoUsuarioComponent,
+    
+    
     
   ],
   imports: [
@@ -90,7 +104,8 @@ import { NuevoShowComponent } from './components/nuevo-show/nuevo-show.component
     MatAutocompleteModule,
     MatGridListModule,
     MatExpansionModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },],
   bootstrap: [AppComponent]

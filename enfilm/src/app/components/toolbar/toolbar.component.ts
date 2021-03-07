@@ -33,19 +33,29 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
+  listaEntradas(){
+    this.router.navigate(['/listaEntradas'])
+  }
+
+  listaUsuarios(){
+    this.router.navigate(['/listaUsuarios'])
+  }
+
+
     /**
    * Confirmación de que deseamos abandonar la sesión
    */
   confirmacionAbandonarSesion() {
     this.comunicacionAlertasService.abrirDialogConfirmacion ('¿Realmente desea abandonar la sesión?').subscribe(opcionElegida => {
       if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
-
+        this.autenticadorJwtService.eliminaJWT();
+        this.userAutenticado = null;
         this.router.navigate(['/login']);
       }
     });
   }
 
   navegarHaciaDatosPersonales(){
-    
+    this.router.navigate(['/updateUser'], {queryParams: {id: this.userAutenticado.id}})
   }
 }

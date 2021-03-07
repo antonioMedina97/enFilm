@@ -1,28 +1,82 @@
-<div class="container">
-  <mat-grid-list cols="5" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let ticket of ticketList">
-      <div class="seat-container">
-        <!--CASO EN EL QUE EL TICKET ESTE OCUPADO EN LA BBDD. SE PONE EN DISABLED-->
-        <mat-button-toggle *ngIf="ticket.user_id != null" value="{{ticket.id}}"  [disabled]=true >
-
-          <mat-icon
-            [ngStyle]="{ color: 'red' }"
-            [inline]="true"
-            class="seat-icon"
-            >event_seat</mat-icon
-          >
-        </mat-button-toggle>
-
-        <!--CASO EN EL QUE EL TICKET NO ESTE OCUPADO EN BBDD.-->
-        <mat-button-toggle *ngIf="!ticket.selected" value="{{ticket.id}}" (change)="onValChange($event.value)">
-          <mat-icon
-          [inline]="true"
-          class="seat-icon"
-          >event_seat</mat-icon
-        >
-        </mat-button-toggle>
+<div class="container h-100">
+  <div class="seat-form h-75 mt-4 pt-2">
+    <div class="pantalla mt-1 w-80 rounded-3 bg-secondary" style="height: 10%;">
+      <div class="row">
+        <div class="col-1 mx-auto my-3 text-white">
+          PANTALLA
+        </div>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <button mat-raised-button (click)="buyTickets()">Comprar</button>
+    </div>
+
+      <div class="row h-100 mt-4">
+        <div class="col-3 mt-3" *ngFor="let ticket of ticketList">
+          
+            <!--CASO EN EL QUE EL TICKET ESTE OCUPADO EN LA BBDD. SE PONE EN DISABLED-->
+            <mat-button-toggle
+              class="w-100 h-100"
+              *ngIf="ticket.user_id != null"
+              value="{{ ticket.id }}"
+              [disabled]="true"
+            >
+              <mat-icon
+                [ngStyle]="{ color: 'red' }"
+                [inline]="true"
+                class="seat-icon"
+                >event_seat</mat-icon
+              >
+            </mat-button-toggle>
+
+            <!--CASO EN EL QUE EL TICKET NO ESTE OCUPADO EN BBDD.-->
+            <mat-button-toggle
+            class="w-100 h-100"
+              *ngIf="!ticket.selected"
+              value="{{ ticket.id }}"
+              (change)="onValChange($event.value)"
+            >
+              <mat-icon [inline]="true" class="seat-icon">event_seat</mat-icon>
+            </mat-button-toggle>
+          
+        </div>
+      </div>
+<!--
+      <mat-grid-list cols="4" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let ticket of ticketList">
+          <div class="seat-container">
+
+            <mat-button-toggle
+              *ngIf="ticket.user_id != null"
+              value="{{ ticket.id }}"
+              [disabled]="true"
+            >
+              <mat-icon
+                [ngStyle]="{ color: 'red' }"
+                [inline]="true"
+                class="seat-icon"
+                >event_seat</mat-icon
+              >
+            </mat-button-toggle>
+
+
+            <mat-button-toggle
+              *ngIf="!ticket.selected"
+              value="{{ ticket.id }}"
+              (change)="onValChange($event.value)"
+            >
+              <mat-icon [inline]="true" class="seat-icon">event_seat</mat-icon>
+            </mat-button-toggle>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    -->
+
+    
+      <button mat-raised-button (click)="buyTickets()" color="primary" class="mt-2">
+        Comprar
+      </button>
+      <button mat-raised-button (click)="volver()" class="mt-2 ms-2 bg-secondary text-white">
+        Volver
+      </button>
+  
+  </div>
 </div>

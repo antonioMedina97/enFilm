@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container h-100">
   <div class="card-container">
     <mat-card class="example-card">
       <img mat-card-image src="assets/login.jpg" alt="Photo of a Shiba Inu" />
@@ -48,8 +48,17 @@
               [disabled]="loginForm.invalid"
               (click)="autenticaUser()"
             >
-              Diselo
+              Entrar
             </button>
+
+            <button
+            mat-raised-button
+            color="secondary"
+            type="button"
+            (click)="newUser()"
+          >
+            Regístrate
+          </button>
           </mat-card-actions>
         </form>
       </mat-card-content>

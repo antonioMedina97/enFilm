@@ -1,0 +1,37 @@
+
+<div class="entrada-completa rounded-3 mt-5">
+
+    <div class="row h-100">
+        <div
+          class="col-9 text-white h-100 align-items-center justify-content-around d-flex flex-column"
+        >
+          <div class="row">
+            <div class="mx-auto fs-2">{{ movie.title }}</div>
+          </div>
+          <div class="row">
+            <div class="mx-auto fs-">{{ticket.date| date:'HH:mm dd/MM'}}</div>
+          </div>
+        </div>
+        <div class="col-3 ps-5 pt-1 d-flex flex-column">
+          <div class="row me-auto h-100">
+            <div class="col-12 m-2">
+              <div class="row h-100">
+                <div class="col-12 d-flex justify-content-center flex-column">
+                  <div class="row mb-auto">
+                    <div class="col-12 fs-3">PRECIO</div>
+                  </div>
+                  <div class="row mt-auto mb-2">
+                    <div class="col-12 fs-1 ms-4">{{ ticket.price }}€</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row ms-auto h-100">
+            <div class="col-12">
+              <img src="../../../assets/img/qr.png" alt="qr" class="w-75 h-75" />
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

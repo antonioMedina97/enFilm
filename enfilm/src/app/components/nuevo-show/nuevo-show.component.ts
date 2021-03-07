@@ -40,7 +40,9 @@ export class NuevoShowComponent implements OnInit {
     console.log(this.nuevoShow.controls.datetime.value);
     console.log(Date.parse(this.nuevoShow.controls.datetime.value))
 
-    this.ticketService.createNewShow(this.nuevoShow.controls.theatre.value, this.nuevoShow.controls.theatre.value, this.nuevoShow.controls.datetime.value)
+    this.ticketService.createNewSession(this.nuevoShow.controls.theatre.value, this.nuevoShow.controls.theatre.value, this.nuevoShow.controls.datetime.value).subscribe( data => {
+      console.log(data)
+    });
     
   }
 

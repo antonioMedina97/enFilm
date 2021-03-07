@@ -1,7 +1,9 @@
-<mat-grid-list cols="4" rowHeight="9:8">
-  
-    <mat-grid-tile *ngFor="let movie of movieList.movies">
-      <mat-card class="movie-card">
+
+<div class="container h-100">
+
+  <div class="row">
+    <div class="col-3 mt-3" *ngFor="let movie of movieList.movies">
+      <mat-card class="movie-card" >
 
         <img mat-card-image src="{{movie.image}}" class="card-image">
         <mat-card-content>
@@ -13,13 +15,11 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <button mat-raised-button color="primary" *ngFor="let date of movie.dates" (click)="navigateToSeatPicker(movie.id, date)">{{date | date:'HH:mm dd/MM'}}</button>
+            <button mat-raised-button class="me-1" color="primary" *ngFor="let date of movie.dates" (click)="navigateToSeatPicker(movie.id, date)">{{date | date:'HH:mm dd/MM'}}</button>
           </mat-expansion-panel>
           <!-- End Expansion pannel -->
         </mat-card-content>
       </mat-card>
-    </mat-grid-tile>
-
-  </mat-grid-list>
-
-
+    </div>
+  </div>
+</div>
